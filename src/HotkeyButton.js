@@ -10,11 +10,11 @@ const propTypes = {
     onClick:PropTypes.func,
     onKeyDown:PropTypes.func,
     onKeyUp:PropTypes.func,
-    tooltip:PropTypes.string
+    tooltip:PropTypes.node
 };
 
 const defaultProps = {
-    keyName:'command+i',
+    keyName:'',
     onClick:()=>{},
     onKeyDown:()=>{},
     onKeyUp:()=>{}
@@ -35,7 +35,7 @@ class HotkeyButton extends Component {
                 onKeyUp={this.props.onKeyUp}
             >
                 {
-                    tooltip?<Tooltip inverse overlay={tooltip} placement="bottom" visible={true} className='ac-hotkey-tooltip'>
+                    tooltip?<Tooltip inverse overlay={tooltip} placement="bottom" className='ac-hotkey-tooltip'>
                                 <Button {...other} onClick={this.click}/>
                             </Tooltip>:
                             <Button {...other} onClick={this.click}/>
